@@ -1,4 +1,7 @@
+const form = document.getElementsByTagName("form");
 const table = document.createElement("table");
+
+
 let allFood = [];
 function Food(foodID,foodName,type,price){
     this.foodID = foodID;
