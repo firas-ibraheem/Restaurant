@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -14,22 +15,37 @@
         <form id ="form">
 
             <label for="Food Name">Food Name</label>
-            <select name="Food Name" id="Food">
-            <option value="Food Name">-----Food Name----</option>
+            <input type="text" id="Name">
+            <br><br>
+            <select name="Food Name" id="Type">
+            <option value="Food Type">-----Food Type----</option>
             <option value="Fruit and vegetables">Fruit and vegetables</option>
             <option value="Starchy food">Starchy food</option>
             <option value="Dairy">Dairy</option>
             <option value="Protein">Protein</option>
             <option value="Fat">Fat</option>
             </select>
+            <br><br>
             <label for="Price">Price</label>
             <input type="text" id="Price">
-            <button type="submit">submit</button>
+            <br><br>
+            <button type="submit" id="submit" >submit</button>
+            <br><br>
+
+            <table id ="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                </tr>
+                
 
 
 
 
 
+            </table>
 
         </form>
 

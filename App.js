@@ -1,52 +1,60 @@
-const form = document.getElementsByTagName("form");
-const table = document.createElement("table");
-
-
-let allFood = [];
-function Food(foodID,foodName,type,price){
+let table = document.getElementById("table");
+let submit = document.getElementById("submit");
+let form = document.getElementById("form");
+let allOrder = [];
+let Id = 0;
+function Order(foodID,foodName,type,price){
     this.foodID = foodID;
     this.foodName = foodName;
     this.type = type;
     this.price = price;
-    allFood.push(this);
-    this.uniqId = function(counter){
+    allOrder.push(this);
+}
+    Order.prototype.generateId = function(counter){
         this.foodID = counter +1;
     ++Id;
     }
+    Order.prototype.render = function(){
+       
+        let addRow = document.createElement("tr");
+        table.appendChild(addRow);
+        let orderID = document.createElement("td")
+        orderID.textContent = this.foodID;
+        addRow.appendChild(orderID);
+        let orderName = document.createElement("td")
+        orderName.textContent = this.foodName;
+        addRow.appendChild(orderName);
+        let orderType = document.createElement("td")
+        orderType.textContent = this.type;
+        addRow.appendChild(orderType);
+        let orderPrice = document.createElement("td")
+        orderPrice.textContent = this.price;
+        addRow.appendChild(orderPrice);
 
-    Food.prototype.foodInfo = function(){
-        const table1 = document.createElement("td");
-        table1.textContent = `Food Name : ${this.foodName}`; 
-        table[0].appendChilde(table1);
-        const table2 = document.createElement("td");
-        table1.textContent = `Type : ${this.type}`; 
-        table[0].appendChilde(table2);
-        const table3 = document.createElement("td");
-        table1.textContent = `Price : ${this.price}`; 
-        table[0].appendChilde(table1);
     }
 
-}
-
-    let foodEl1 = new Food(this.uniqId,"Pizza","Fat","8.35");
-    let foodEl2 = new Food(this.uniqId,"Burger","Fat","4.24");
-    let foodEl3 = new Food(this.uniqId,"Apple","Fruit","0.65");
-
-
-
-    // let form =document.getElementById("form");
-    // form.addEventListener("submit",handleSubmit)
+  
+    form.addEventListener("submit",handleSubmit);
     
+    function handleSubmit(event){
+        event.preventDefault(event);
+        let foodName = event.target.Name.value;
+        let type = event.target.Type.value;
+        let price = event.target.Price.value;
+        const newForm = new Order(foodName,type,price);
+        newForm.generateId(Id);
+        newForm.render();
+        
+        
+    }
+   
+ 
 
-    // function handleSubmit(event){
-    //     event.preventDefault();
-    //     let food = event.target.form.value;
 
-    // }
-    foodEl1.foodInfo();
-    foodEl2.foodInfo();
-    foodEl3.foodInfo();
 
+   
+   
+    
 
 
 
